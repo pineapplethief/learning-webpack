@@ -19,6 +19,20 @@ const commonConfig = {
     filename: '[name].js'
   },
 
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true
+        }
+      }
+    ]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack Demo'
@@ -36,8 +50,17 @@ const developmentConfig = () => {
 
       stats: 'errors-only',
       host: process.env.HOST || '0.0.0.0',
-      port: process.env.PORT || '3000'
+      port: process.env.PORT || '3000',
+
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
     },
+
+    plugins: [
+      ...commonConfig.plugins
+    ]
   }
 
   return Object.assign({}, commonConfig, config)
