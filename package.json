@@ -1,0 +1,21 @@
+{
+  "name": "webpack-learning",
+  "version": "1.0.0",
+  "description": "Repo to learn webpack in and out",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "build": "webpack --env production"
+  },
+  "devDependencies": {
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "nodemon": "^1.11.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
